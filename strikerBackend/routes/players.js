@@ -1,6 +1,31 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb){
+        cb(null, './uploads/');
+    },
+    filename: function(req, file, cb){
+        cb(null, new Date().toISOString() + file.originalname);
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    //Reject a file when it is not right
+    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+        cb(null, true);
+    }else{
+        cb(null, false);
+    }
+};
+
+const upload = multer({storage: storage, limits: {
+    fileSize:1024 * 1024 * 5
+},
+    fileFilter: fileFilter
+});
 
 const Player = require('../models/player');
 
@@ -90,10 +115,10 @@ router.get('/', (req, res, next) => {
         });
 });
 
-router.post('/', (req, res, next) => {
+router.post('/', upload.single('Photo'), (req, res, next) => {
     const player = new Player({
         _id:new mongoose.Types.ObjectId(),
-        Photo:req.body.Photo,
+        Photo:req.file.path,
         Short_name:req.body.Short_name,
         Long_name:req.body.Long_name,
         Age:req.body.Age,
@@ -210,7 +235,7 @@ router.post('/', (req, res, next) => {
                     GKReflexes:result.GKReflexes,
                     request: {
                             type: 'GET',
-                            url:'http://localhost:3000/players/' + doc._id
+                            url:'http://localhost:3000/players/' + result._id
                     }
                 }
 

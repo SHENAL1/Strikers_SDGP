@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const playerRoutes = require('./routes/players');
+const userRoutes = require('./routes/user');
 
 const MONGODB_URI = 'mongodb+srv://admin:admin@striker-spfii.mongodb.net/PlayerDetails?retryWrites=true&w=majority';
 mongoose.connect(MONGODB_URI, {
@@ -17,6 +18,7 @@ mongoose.connection.on('connection',() => {
 });
 
 app.use(morgan('dev'));
+app.use('/uploads',express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -34,7 +36,8 @@ app.use((req, res, next) => {
 
 
 
-app.use('/players', playerRoutes);
+app.use("/players", playerRoutes);
+app.use("/user", userRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not Found');
