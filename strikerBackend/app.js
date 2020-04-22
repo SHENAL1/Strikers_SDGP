@@ -7,12 +7,21 @@ const mongoose = require('mongoose');
 const playerRoutes = require('./routes/players');
 const userRoutes = require('./routes/user');
 
+/*
+ * 
+ *Connects to Mongodb instance on Atles
+ *
+ */
+
+
+
 const MONGODB_URI = 'mongodb+srv://admin:admin@striker-spfii.mongodb.net/PlayerDetails?retryWrites=true&w=majority';
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser:true,
     useUnifiedTopology: true
 });
 
+//Test the mongodb connection
 mongoose.connection.on('connection',() => {
     console.log('Mongoose is connected');
 });

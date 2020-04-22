@@ -13,10 +13,12 @@ const userSchema = mongoose.Schema({
     },
     userName: {
         type: String,
-        required: 'Please enter the user name'
+        required: 'Please enter the user name',
+        unique: true,
     },
     email: {
-        type: String
+        type: String,
+        match:/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     },
     password: {
         type: String
