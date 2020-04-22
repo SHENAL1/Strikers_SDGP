@@ -1,35 +1,70 @@
-const express = require('express');
-const app = express();
-const morgan = require('morgan');
+/** 
+ * @description Globle library imports to the back-end
+ * */
+const express = require('express'); //setup the globle libraries
+const app = express(); 
+const morgan = require('morgan'); //Logger for node
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); //pass date to database
 
-const playerRoutes = require('./routes/players');
-const userRoutes = require('./routes/user');
+const playerRoutes = require('./routes/players');   //connect player route 
+const userRoutes = require('./routes/user');    //connect user route 
 
 /*
  * 
- *Connects to Mongodb instance on Atles
+ * Connects to Mongodb instance on Atles
  *
  */
 
 
 
 const MONGODB_URI = 'mongodb+srv://admin:admin@striker-spfii.mongodb.net/PlayerDetails?retryWrites=true&w=majority';
-mongoose.connect(MONGODB_URI, {
+const option =  {
     useNewUrlParser:true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex:true,
+};
+
+/*Test the server wether connect or not*/
+mongoose.connect(MONGODB_URI, option, (err) => {
+    if (err){
+        console.error("Connection could not be create,Please recheak",
+        err
+        );
+    }else{
+        console.log("Connection to db ready");
+    }
 });
 
 //Test the mongodb connection
-mongoose.connection.on('connection',() => {
+mongoose.connection.on('connected',() => {
     console.log('Mongoose is connected');
 });
 
-app.use(morgan('dev'));
+//The connection throws an error
+mongoose.connection.on("error",function(err){
+    console.log('Mongoose default connection error: ' + err);
+});
+
+//connection disconnected
+mongoose.connection.on('disconnected',function(){
+    console.log('Mongoose default connection is disconnected');
+});
+
+//Close the mongoose connection
+process.on("SIGINT", function(){
+    mongoose.connection.close(function(){
+        console.log("Mongoose default connection disconnected through web application"
+        );
+        process.exit(0)
+    });
+
+})
+
+app.use(morgan('dev')); //Used Morgan
 app.use('/uploads',express.static('uploads'));
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));  //this for encorded Url's supporting rech data
+app.use(bodyParser.json());     //body paser for json data 
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
