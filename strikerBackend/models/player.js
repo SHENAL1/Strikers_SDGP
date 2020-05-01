@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+/** 
+ * @fileOverview Define the player model to database
+ * */
+
 const playerSchema = mongoose.Schema({
     _id:mongoose.Schema.Types.ObjectId,
     Photo: String,
@@ -57,4 +61,4 @@ const playerSchema = mongoose.Schema({
     GKReflexes:Number
 });
 
-module.exports = mongoose.model('NewPlayerDetails',playerSchema);
+module.exports = mongoose.model('StoredPlayerDetails',playerSchema);

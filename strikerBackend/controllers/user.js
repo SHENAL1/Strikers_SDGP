@@ -91,17 +91,27 @@ exports.userLogin = (req, res, next) => {
 }
 
 exports.deleteUserAcc = (req, res, next) => {
-    newUser.remove({_id: req.params.userId})
+    newUser.find({ _id: req.params.userId})
     .exec()
-    .then(result => {
-        res.status(200).json({
-            message:'The selected user is deleted'
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json({
-            error: err
-        });
+    .then(user => {
+        if (user.length >= 1) {
+                newUser.remove({_id: req.params.userId})
+                .exec()
+                .then(result => {
+                res.status(200).json({
+                    message:'The selected user is deleted'
+                });
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json({
+                    error: err
+                });
+            });
+        }else{
+            return res.status(409).json({
+                message: 'There are no selected user in the database'
+             });
+        }
     });
-}
+ }

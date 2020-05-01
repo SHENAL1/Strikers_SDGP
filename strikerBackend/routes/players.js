@@ -1,6 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const multer = require('multer');
+/** 
+ * @fileOverview Define the route for player
+ * @description This contains the routes for player details create,get,delete and update operation 
+ * */
+
+const express = require('express'); //Globle express lib
+const router = express.Router(); //import express router
+const multer = require('multer'); //multer for uploading an image
 
 const cheakAuthentication = require('../middleware/authentication');
 const playerController = require('../controllers/players');
@@ -23,20 +28,30 @@ const fileFilter = (req, file, cb) => {
     }
 };
 
+//Get the size and validate it
 const upload = multer({storage: storage, limits: {
     fileSize:1024 * 1024 * 5
 },
     fileFilter: fileFilter
 });
 
+//get player details
 router.get('/', playerController.getAllPlayersDetials);
 
+//Create player details
 router.post('/',cheakAuthentication,upload.single('Photo'), playerController.addNewPlayerDetails);
 
+//get selected player details
 router.get('/:playerId', playerController.getSelectedPlayerDetails);
 
-router.put('/:playerId', cheakAuthentication,playerController.getSelectedPlayerDetails);
+//get selected player by firstName
+router.get('/:Short_name', playerController.getPlayersDetialsByName);
 
+//update selected player details
+router.put('/:playerId', cheakAuthentication,playerController.editPlayerDetails);
+
+
+//delete selected player details
 router.delete('/:playerId', cheakAuthentication,playerController.deletePlayerDetails);
 
 
