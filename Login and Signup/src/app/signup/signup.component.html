@@ -1,0 +1,53 @@
+<div class="container">
+
+    <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-3 text-center">Create Account</h4>
+        <p class="text-center">Get started with your free account</p>
+        
+        
+        <form>
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+             </div>
+            <input name="firstName" class="form-control" value="firstName" [formControl]="firstNameFormControl" placeholder="First name" type="text">
+          </div> <!-- form-group// -->
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+             </div>
+            <input name="lastName" class="form-control" value="lastName" [formControl]="lastNameFormControl" placeholder="Last Name" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+             </div>
+            <input name="userName" class="form-control" value="userName" [formControl]="userNameFormControl" placeholder="User Name" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+             </div>
+            <input name="email" class="form-control"  value="email" [formControl]="emailFormControl" placeholder="Email address" type="email">
+        </div> <!-- form-group// -->
+        
+      <div class="form-group input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            </div>
+            <input class="form-control" [formControl]="passwordFormControl" placeholder="Create password" type="password">
+        </div> <!-- form-group// -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block" value="signup" name="signup" (click)="register()"> Create Account  </button>
+        </div> <!-- form-group// -->      
+        <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
+    </form>
+    </article>
+    </div> <!-- card.// -->
+    
+    </div> 
+    <!--container end.//-->
+    
+    <br><br>
+    
