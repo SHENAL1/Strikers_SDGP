@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
+import { AddPlayerComponent } from './add-player/add-player.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'ratings',component:RatingsComponent},
   {path:'home',component:HomeComponent},
   {path:'menu',component:MenuComponent},
+  {path:'add-player',component:AddPlayerComponent},
 ];
 
 @NgModule({
@@ -21,4 +23,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [SignupComponent,LoginComponent,RatingsComponent,HomeComponent,MenuComponent]
+export const routingComponents = [SignupComponent,LoginComponent,RatingsComponent,HomeComponent,MenuComponent,AddPlayerComponent]
