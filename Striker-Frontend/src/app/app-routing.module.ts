@@ -4,6 +4,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { HomeComponent } from './home/home.component';
+import { MenuComponent } from './menu/menu.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'ratings',component:RatingsComponent},
   {path:'home',component:HomeComponent},
+  {path:'menu',component:MenuComponent},
 ];
 
 @NgModule({
@@ -19,4 +21,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [SignupComponent,LoginComponent,RatingsComponent,HomeComponent]
+export const routingComponents = [SignupComponent,LoginComponent,RatingsComponent,HomeComponent,MenuComponent]
