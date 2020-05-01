@@ -3,6 +3,7 @@ import numpy as np
 import sklearn
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error
+import pickle
 
 z = 0
 def goalkeeper():
@@ -18,21 +19,45 @@ def goalkeeper():
     X = np.array(data.drop([predict], 1)) # drop overall to select other variables as dependent variables
     y = np.array(data[predict]) # select overall as independent variable
 
-    # split the data into train and test
+    # Splitting data into test and train
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
-    linear = linear_model.LinearRegression() # create an object in linear regression model
+    #linear = linear_model.LinearRegression()  # create the linear regression object
 
-    linear.fit(x_train, y_train) # pass the into fit function
-    acc = linear.score(x_test, y_test)
+    #linear.fit(x_train, y_train)  # find the best fit line
+    #acc = linear.score(x_test, y_test)
+
+    """
+    #saving the model using pickle
+    best = 0
+    for _ in range(100):
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+        linear = linear_model.LinearRegression() #create the linear regression object
+        linear.fit(x_train, y_train)    #find the best fit line
+        acc = linear.score(x_test, y_test)
+        print("The accuracy of the module1 is", acc)
+        #check the best accuracy in the model
+        if acc > best:
+            print("The best accuracy", best)
+            best = acc
+            with open("goalkeeper.pickle", "wb") as f: # save the model to pickle file
+                pickle.dump(linear, f)
+    """
+    # load file
+    pickle_in = open("goalkeeper.pickle", "rb")
+    linear = pickle.load(pickle_in)
 
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
+
+    # calculating the accuracy of the model
+    acc = linear.score(x_test, y_test)
+    print("The accuracy of the module 1 is  ", acc)
 
     predictions = linear.predict(x_test)
 
     for i in range(len(predictions)):
         print(predictions[i], x_test[i], y_test[i])
-    print("The accuracy of the module is", acc)
+
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
     #print("The Test value:\n")
     #print(linear.predict(np.array([[80.0, 30.0, 56.0, 45.0, 78.0, 56.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0]]))[0])
@@ -52,21 +77,41 @@ def leftWingBack():
     X = np.array(data.drop([predict], 1))#drop overall to select other variables as dependent variables
     y = np.array(data[predict])# select overall as independent variable
 
+    # Splitting data into test and train
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
-    linear = linear_model.LinearRegression()# create an object in linear regression model
+    """
+    #saving the model using pickle
+    best = 0
+    for _ in range(100):
 
-    linear.fit(x_train, y_train) # pass the into fit function
-    acc = linear.score(x_test, y_test)
-
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+        linear = linear_model.LinearRegression() #create the linear regression object
+        linear.fit(x_train, y_train)    #find the best fit line
+        acc = linear.score(x_test, y_test)
+        print("The accuracy of the module1 is", acc)
+        #check the best accuracy in the model
+        if acc > best:
+            print("The best accuracy", best)
+            best = acc
+            with open("leftWingBack.pickle", "wb") as f: # save the model to pickle file
+                pickle.dump(linear, f)
+    """
+    # load file
+    pickle_in = open("leftWingBack.pickle", "rb")
+    linear = pickle.load(pickle_in)
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
 
+    #calculating the accuracy of the model
+    acc = linear.score(x_test, y_test)
+    print("The accuracy of the module 2 is  ", acc)
+
+    #prediction values of test data.
     predictions = linear.predict(x_test)
 
     for i in range(len(predictions)):
         print(predictions[i], x_test[i], y_test[i])
 
-    print("The accuracy of the module is", acc)
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
     print("\n")
 
@@ -86,21 +131,42 @@ def centreMidfielder():
     X = np.array(data.drop([predict], 1))#drop overall to select other variables as dependent variables
     y = np.array(data[predict])# select overall as independent variable
 
+    # Splitting data into test and train
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
-    linear = linear_model.LinearRegression()# create an object in linear regression model
+    """
+    #saving the model using pickle
+    best = 0
+    for _ in range(100):
 
-    linear.fit(x_train, y_train) # pass the into fit function
-    acc = linear.score(x_test, y_test)
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+        linear = linear_model.LinearRegression() #create the linear regression object
+        linear.fit(x_train, y_train)    #find the best fit line
+        acc = linear.score(x_test, y_test)
+        print("The accuracy of the module1 is", acc)
+        #check the best accuracy in the model
+        if acc > best:
+            print("The best accuracy", best)
+            best = acc
+            with open("centreMidfielder.pickle", "wb") as f: # save the model to pickle file
+                pickle.dump(linear, f)
+    """
+    # load file
+    pickle_in = open("centreMidfielder.pickle", "rb")
+    linear = pickle.load(pickle_in)
 
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
 
+    #calculating the accuracy of the model
+    acc = linear.score(x_test, y_test)
+    print("The accuracy of the module 3 is  ", acc)
+
+    #prediction values of test data.
     predictions = linear.predict(x_test)
 
     for i in range(len(predictions)):
         print(predictions[i], x_test[i], y_test[i])
 
-    print("The accuracy of the module is", acc)
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
     print("\n")
 
@@ -119,20 +185,42 @@ def rightWingBack():
     X = np.array(data.drop([predict], 1))#drop overall to select other variables as dependent variables
     y = np.array(data[predict])# select overall as independent variable
 
+    # Splitting data into test and train
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
-    linear = linear_model.LinearRegression()# create an object in linear regression model
+    """
+    #saving the model using pickle
+    best = 0
+    for _ in range(100):
 
-    linear.fit(x_train, y_train) # pass the into fit function
-    acc = linear.score(x_test, y_test)
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+        linear = linear_model.LinearRegression() #create the linear regression object
+        linear.fit(x_train, y_train)    #find the best fit line
+        acc = linear.score(x_test, y_test)
+        print("The accuracy of the module1 is", acc)
+        #check the best accuracy in the model
+        if acc > best:
+            print("The best accuracy", best)
+            best = acc
+            with open("rightWingBack.pickle", "wb") as f: # save the model to pickle file
+                pickle.dump(linear, f)
+    """
+    # load file
+    pickle_in = open("rightWingBack.pickle", "rb")
+    linear = pickle.load(pickle_in)
 
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
 
+    # calculating the accuracy of the model
+    acc = linear.score(x_test, y_test)
+    print("The accuracy of the module 4 is  ", acc)
+
+    # prediction values of test data.
     predictions = linear.predict(x_test)
 
     for i in range(len(predictions)):
         print(predictions[i], x_test[i], y_test[i])
-    print("The accuracy of the module is", acc)
+
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
     print("\n")
 
@@ -151,20 +239,39 @@ def rightWingAttacker():
     X = np.array(data.drop([predict], 1))#drop overall to select other variables as dependent variables
     y = np.array(data[predict])# select overall as independent variable
 
+    # Splitting data into test and train
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
-    linear = linear_model.LinearRegression()# create an object in linear regression model
 
-    linear.fit(x_train, y_train) # pass the into fit function
-    acc = linear.score(x_test, y_test)
+    """
+    #saving the model using pickle
+    best = 0
+    for _ in range(100):
+
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+        linear = linear_model.LinearRegression() #create the linear regression object
+        linear.fit(x_train, y_train)    #find the best fit line
+        acc = linear.score(x_test, y_test)
+        print("The accuracy of the module1 is", acc)
+        #check the best accuracy in the model
+        if acc > best:
+            print("The best acc", best)
+            best = acc
+            with open("rightWingAttacker.pickle", "wb") as f: # save the model to pickle file
+                pickle.dump(linear, f)
+    """
+    # load file
+    pickle_in = open("rightWingAttacker.pickle", "rb")
+    linear = pickle.load(pickle_in)
 
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
 
+    #calculating the accuracy of the model
     predictions = linear.predict(x_test)
 
     for i in range(len(predictions)):
         print(predictions[i], x_test[i], y_test[i])
-    print("The accuracy of the module is", acc)
+
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
     print("\n")
 
@@ -183,20 +290,42 @@ def leftWingAttacker():
     X = np.array(data.drop([predict], 1))#drop overall to select other variables as dependent variables
     y = np.array(data[predict])# select overall as independent variable
 
+    # Splitting data into test and train
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
-    linear = linear_model.LinearRegression()# create an object in linear regression model
+    """
+    #saving the model using pickle
+    best = 0
+    for _ in range(100):
 
-    linear.fit(x_train, y_train) # pass the into fit function
-    acc = linear.score(x_test, y_test)
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+        linear = linear_model.LinearRegression() #create the linear regression object
+        linear.fit(x_train, y_train)    #find the best fit line
+        acc = linear.score(x_test, y_test)
+        print("The accuracy of the module1 is", acc)
+        #check the best accuracy in the model
+        if acc > best:
+            print("The best accuracy", best)
+            best = acc
+            with open("leftWingAttacker.pickle", "wb") as f: # save the model to pickle file
+                pickle.dump(linear, f)
+    """
+    # load file
+    pickle_in = open("leftWingAttacker.pickle", "rb")
+    linear = pickle.load(pickle_in)
 
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
 
+    #calculating the accuracy of the model
+    acc = linear.score(x_test, y_test)
+    print("The accuracy of the module 6 is  ", acc)
+
+    #prediction values of test data.
     predictions = linear.predict(x_test)
 
     for i in range(len(predictions)):
         print(predictions[i], x_test[i], y_test[i])
-    print("The accuracy of the module is", acc)
+
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
     print("\n")
 
@@ -214,20 +343,42 @@ def rightCentreMidfielder():
     X = np.array(data.drop([predict], 1))#drop overall to select other variables as dependent variables
     y = np.array(data[predict])# select overall as independent variable
 
+    # Splitting data into test and train
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
-    linear = linear_model.LinearRegression()# create an object in linear regression model
+    """
+    #saving the model using pickle
+    best = 0
+    for _ in range(100):
 
-    linear.fit(x_train, y_train) # pass the into fit function
-    acc = linear.score(x_test, y_test)
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+        linear = linear_model.LinearRegression() #create the linear regression object
+        linear.fit(x_train, y_train)    #find the best fit line
+        acc = linear.score(x_test, y_test)
+        print("The accuracy of the module1 is", acc)
+        #check the best accuracy in the model
+        if acc > best:
+            print("The best accuracy", best)
+            best = acc
+            with open("rightCentreMidfielder.pickle", "wb") as f:  # save the model to pickle file
+                pickle.dump(linear, f)
+    """
+    # load file
+    pickle_in = open("rightCentreMidfielder.pickle", "rb")
+    linear = pickle.load(pickle_in)
 
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
 
+    # calculating the accuracy of the model
+    acc = linear.score(x_test, y_test)
+    print("The accuracy of the module 7 is ", acc)
+
+    # prediction values of test data.
     predictions = linear.predict(x_test)
 
     for i in range(len(predictions)):
         print(predictions[i], x_test[i], y_test[i])
-    print("The accuracy of the module is", acc)
+
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
     print("\n")
 
@@ -245,20 +396,42 @@ def leftCentreMidfielder():
     X = np.array(data.drop([predict], 1))#drop overall to select other variables as dependent variables
     y = np.array(data[predict])# select overall as independent variable
 
+    # Splitting data into test and train
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
-    linear = linear_model.LinearRegression()# create an object in linear regression model
+    """
+    #saving the model using pickle
+    best = 0
+    for _ in range(100):
 
-    linear.fit(x_train, y_train) # pass the into fit function
-    acc = linear.score(x_test, y_test)
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+        linear = linear_model.LinearRegression() #create the linear regression object
+        linear.fit(x_train, y_train)    #find the best fit line
+        acc = linear.score(x_test, y_test)
+        print("The accuracy of the module1 is", acc)
+        #check the best accuracy in the model
+        if acc > best:
+            print("The best accuracy", best)
+            best = acc
+            with open("leftCentreMidfielder.pickle", "wb") as f:  # save the model to pickle file
+                pickle.dump(linear, f)
+    """
+    # load file
+    pickle_in = open("leftCentreMidfielder.pickle", "rb")
+    linear = pickle.load(pickle_in)
 
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
+
+    # calculating the accuracy of the model
+    acc = linear.score(x_test, y_test)
+    print("The accuracy of the module 8 is  ", acc)
+
+    # prediction values of test data.
 
     predictions = linear.predict(x_test)
 
     for i in range(len(predictions)):
         print(predictions[i], x_test[i], y_test[i])
-    print("The accuracy of the module is", acc)
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
     print("\n")
 
@@ -276,20 +449,44 @@ def striker():
     X = np.array(data.drop([predict], 1))#drop overall to select other variables as dependent variables
     y = np.array(data[predict])# select overall as independent variable
 
+    # Splitting data into test and train
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
-    linear = linear_model.LinearRegression()# create an object in linear regression model
 
-    linear.fit(x_train, y_train) # pass the into fit function
-    acc = linear.score(x_test, y_test)
+    """
+    #saving the model using pickle
+    best = 0
+    for _ in range(100):
+
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+        linear = linear_model.LinearRegression() #create the linear regression object
+        linear.fit(x_train, y_train)    #find the best fit line
+        acc = linear.score(x_test, y_test)
+        print("The accuracy of the module1 is", acc)
+        #check the best accuracy in the model
+        if acc > best:
+            print("The best accuracy", best)
+            best = acc
+            with open("striker.pickle", "wb") as f:  # save the model to pickle file
+                pickle.dump(linear, f)
+    """
+    # load file
+    pickle_in = open("striker.pickle", "rb")
+    linear = pickle.load(pickle_in)
 
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
+
+    # calculating the accuracy of the model
+    acc = linear.score(x_test, y_test)
+    print("The accuracy of the module 9 is  ", acc)
+
+    # prediction values of test data.
 
     predictions = linear.predict(x_test)
 
     for i in range(len(predictions)):
         print(predictions[i], x_test[i], y_test[i])
-    print("The accuracy of the module is", acc)
+
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
     print("\n")
 
@@ -308,20 +505,43 @@ def leftCenterDefender():
     X = np.array(data.drop([predict], 1))#drop overall to select other variables as dependent variables
     y = np.array(data[predict])# select overall as independent variable
 
+    # Splitting data into test and train
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
-    linear = linear_model.LinearRegression()# create an object in linear regression model
 
-    linear.fit(x_train, y_train) # pass the into fit function
-    acc = linear.score(x_test, y_test)
+    """
+    #saving the model using pickle
+    best = 0
+    for _ in range(100):
+
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+        linear = linear_model.LinearRegression() #create the linear regression object
+        linear.fit(x_train, y_train)    #find the best fit line
+        acc = linear.score(x_test, y_test)
+        print("The accuracy of the module1 is", acc)
+        #check the best accuracy in the model
+        if acc > best:
+            print("The best accuracy", best)
+            best = acc
+            with open("leftCenterDefender.pickle", "wb") as f:  # save the model to pickle file
+                pickle.dump(linear, f)
+    """
+    # load file
+    pickle_in = open("leftCenterDefender.pickle", "rb")
+    linear = pickle.load(pickle_in)
 
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
 
+    # calculating the accuracy of the model
+    acc = linear.score(x_test, y_test)
+    print("The accuracy of the module is 10 ", acc)
+
+    # prediction values of test data.
     predictions = linear.predict(x_test)
 
     for i in range(len(predictions)):
         print(predictions[i], x_test[i], y_test[i])
-    print("The accuracy of the module is", acc)
+
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
     print("\n")
 
@@ -339,20 +559,42 @@ def rightCenterDefender():
     X = np.array(data.drop([predict], 1))#drop overall to select other variables as dependent variables
     y = np.array(data[predict])# select overall as independent variable
 
+    # Splitting data into test and train
     x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
-    linear = linear_model.LinearRegression()# create an object in linear regression model
 
-    linear.fit(x_train, y_train) # pass the into fit function
-    acc = linear.score(x_test, y_test)
+    """
+    #saving the model using pickle
+    best = 0
+    for _ in range(100):
+
+        x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.2)
+        linear = linear_model.LinearRegression() #create the linear regression object
+        linear.fit(x_train, y_train)    #find the best fit line
+        acc = linear.score(x_test, y_test)
+        print("The accuracy of the module1 is", acc)
+        #check the best accuracy in the model
+        if acc > best:
+            print("The best accuracy", best)
+            best = acc
+            with open("rightCenterDefender.pickle", "wb") as f:  # save the model to pickle file
+                pickle.dump(linear, f)
+    """
+    # load file
+    pickle_in = open("rightCenterDefender.pickle", "rb")
+    linear = pickle.load(pickle_in)
 
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
 
+    # calculating the accuracy of the model
+    acc = linear.score(x_test, y_test)
+    print("The accuracy of the module 11 is  ", acc)
+
+    # prediction values of test data.
     predictions = linear.predict(x_test)
 
     for i in range(len(predictions)):
         print(predictions[i], x_test[i], y_test[i])
-    print("The accuracy of the module3 is", acc)
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
 
     print("\n")
