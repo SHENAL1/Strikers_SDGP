@@ -280,8 +280,8 @@ def centreMidfielder():
 
     print("The Ratings of the Center MidFielder:\n")
 
-    # Finding the values that contain Position = "CM" To get the Center MidFielders from the collection
-    result = collection.find({"Position": "CM"})
+    # Finding the values that contain Position = "CM" and Position = "CAM" To get the Center MidFielders and Center Atacking Midfielders from the collection
+    result = collection.find({"Position": "CM","Position": "CAM"})
 
     #create empty arrays to store names and ratings
     names = []
