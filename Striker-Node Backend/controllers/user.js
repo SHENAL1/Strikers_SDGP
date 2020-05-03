@@ -73,6 +73,7 @@ exports.userLogin = (req, res, next) => {
                     expiresIn:"1h"
                 })
                 return res.status(200).json({
+                    auth:true,
                     message: 'Authentication successful',
                     token: token
                 });

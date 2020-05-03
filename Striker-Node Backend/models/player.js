@@ -60,4 +60,4 @@ const playerSchema = mongoose.Schema({
     GKReflexes:Number
 });
 
-module.exports = mongoose.model('NewPlayerDetails',playerSchema);  
+module.exports = mongoose.model('PlayerDetails',playerSchema);  
