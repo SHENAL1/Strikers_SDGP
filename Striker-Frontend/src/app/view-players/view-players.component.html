@@ -1,0 +1,130 @@
+
+
+<div class="container">
+    <table class="table table-hover table-dark" >
+      <thead>
+          <tr class="p-3 mb-2 bg-secondary text-white">
+            <th>Photo</th>
+            <th>Short_name</th>
+             <th>Long_name</th>
+              <th>Age</th>
+              <th>Height</th>
+              <th>Weight</th>
+              <th>Nationality</th>
+              <th>Club</th>
+              <th>Overall</th>
+              <th>PotentialPotential</th>
+              <th>Value</th>
+              <th>Preferred_Foot</th>
+              <th>International_Reputation</th>
+              <th>Weak_Foot</th>
+              <th>Skill_Moves</th>
+              <th>Position</th>
+              <th>Jersey_Number</th>
+              <th>Contract_Valid_Until</th>
+              <th>Crossing</th>
+              <th>Finishing</th>
+              <th>Heading_Accuracy</th>
+              <th>Short_Passing</th>
+              <th>Volleys</th>
+              <th>Dribbling</th>
+              <th>Curve</th>
+              <th>FK_Accuracy</th>
+              <th>Long_Passing</th>
+              <th> Ball_Control</th>
+              <th>Acceleration</th>
+              <th>Sprint_Speed</th>
+              <th>Agility</th>
+              <th>Reactions</th>
+              <th>Balance</th>
+              <th>Shot_Power</th>
+              <th>Jumping</th>
+              <th>Stamina</th>
+              <th>Strength</th>
+              <th>Long_Shots</th>
+              <th>Aggression</th>
+              <th>Interceptions</th>
+              <th>Positioning</th>
+              <th>Vision</th>
+              <th>Penalties</th>
+              <th>Composure</th>
+              <th>Marking</th>
+              <th>Standing_Tackle</th>
+              <th>Sliding_Tackle</th>
+              <th>GK_Diving</th>
+              <th>GK_Handling</th>
+              <th>GK_Kicking</th>
+              <th>GK_Positioning</th>
+              <th>GKReflexes</th>
+             
+          </tr>
+      </thead>
+      <tbody >
+    
+        
+           <tr *ngFor = "let player of Player">
+             
+             <td>{{player.id}}</td>  ng    
+            <td><div id="img" style="background-image: url('https://i0.wp.com/winnyweatherwatch.com/wp-content/uploads/2018/12/clouds-dark-dark-clouds-416920-e1543806562950.jpg?resize=1000%2C480&ssl=1') "></div></td>   
+            <td>{{player.Short_name}}</td>     
+            <td>{{player.Long_name}}</td>
+            <td>{{player.Age}}</td>
+            <td>{{player.Height}}</td>
+            <td>{{player.Weight}}</td>
+            <td>{{player.Nationality}}</td>
+           <td>{{player.Club}}</td>
+            <td>{{player.Overall}}</td>
+            <td>{{player.PotentialPotential}}</td>
+            <td>{{player.Value}}</td>
+            <td>{{player.Preferred_Foot}}</td>
+            <td>{{player.International_Reputation}}</td>
+            <td>{{player.Weak_Foot}}</td>
+            <td>{{player.Skill_Moves}}</td>
+            <td>{{player.Position}}</td>
+            <td>{{player.Jersey_Number}}</td>
+            <td>{{player.Contract_Valid_Until}}</td>
+            <td>{{player.Crossing}}</td>
+            <td>{{player.Finishing}}</td>
+            <td>{{player.Heading_Accuracy}}</td>
+            <td>{{player.Short_Passing}}</td>
+            <td>{{player.Volleys}}</td>
+            <td>{{player.Dribbling}}</td>
+            <td>{{player.Curve}}</td>
+            <td>{{player.FK_Accuracy}}</td>
+            <td>{{player.Long_Passing}}</td>
+            <td> {{player.Ball_Control}}</td>
+            <td>{{player.Acceleration}}</td>
+            <td>{{player.Sprint_Speed}}</td>
+            <td>{{player.Agility}}</td>
+            <td>{{player.Reactions}}</td>
+            <td>{{player.Balance}}</td>
+            <td>{{player.Shot_Power}}</td>
+            <td>{{player.Jumping}}</td>
+            <td>{{player.Stamina}}</td>
+            <td>{{player.Strength}}</td>
+            <td>{{player.Long_Shots}}</td>
+            <td>{{player.Aggression}}</td>
+            <td>{{player.Interceptions}}</td>
+            <td>{{player.Positioning}}</td>
+            <td>{{player.Vision}}</td>
+            <td>{{player.Penalties}}</td>
+            <td>{{player.Composure}}</td>
+            <td>{{player.Marking}}</td>
+            <td>{{player.Standing_Tackle}}</td>
+            <td>{{player.Sliding_Tackle}}</td>
+            <td>{{player.GK_Diving}}</td>
+            <td>{{player.GK_Handling}}</td>
+            <td>{{player.GK_Kicking}}</td>
+            <td>{{player.GK_Positioning}}</td>
+            <td>{{player.GKReflexes}}</td> 
+            <td><button class="btn btn-danger">Delete</button></td>
+             <td><button class="btn btn-primary">Update</button></td>
+            
+          </tr>
+      </tbody>
+    </table>
+    </div>
+    
+   
+      
+  
