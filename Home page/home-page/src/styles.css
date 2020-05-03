@@ -7,7 +7,7 @@
   }
   body{
     font-family: montserrat;
-background: url(D:\Angular projects\Home page\home-page\1387771.jpg);
+    background: url(G:\Home page\Home page\home-page\1387771.jpg);
   }
   nav{
     background: #021981;
@@ -23,7 +23,7 @@ background: url(D:\Angular projects\Home page\home-page\1387771.jpg);
   }
   nav ul{
     float: right;
-    margin-right: 20px;
+    margin-right: 25px;
   }
   nav ul li{
     display: inline-block;
@@ -98,8 +98,8 @@ background: url(D:\Angular projects\Home page\home-page\1387771.jpg);
   }
   .search-box{
       position:absolute;
-      top: 50%;
-      left:50%;
+      top: 7%;
+      left:94%;
       transform:translate(-50%,-50%);
       background: #2f3640;
       height:40px;
@@ -107,13 +107,16 @@ background: url(D:\Angular projects\Home page\home-page\1387771.jpg);
       padding:10px;
   }
   .search-box:hover > .search-txt{
-    width:240px;
+    width:150px;
     padding:0  6px;
       
   }
+  .search-box:hover > .search-btn{
+    background: white;
+  }
   .search{
       position: absolute;
-      top:50%;
+      text-outline: 50%;
       left:50%;
       transform: translate(-50%,-50%);
       float: right;
@@ -123,11 +126,12 @@ background: url(D:\Angular projects\Home page\home-page\1387771.jpg);
       float:right;
       width: 40px;
       height:40px;
-      border-radius: 50%;
+      border-radius: 60%;
       background: #2f3640;
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: 0.4s;
   }
   .search-txt{
       border:none;
@@ -135,8 +139,9 @@ background: url(D:\Angular projects\Home page\home-page\1387771.jpg);
       outline:none;
       float: left;
       padding:0;
+      color:white;
       font-size: 16px;
       transition: 0.4s;
       line-height: 40px;
-      width:240px;
+      width:0px;
   }
