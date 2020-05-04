@@ -8,8 +8,6 @@ from sklearn.metrics import mean_squared_error
 import pickle
 from pymongo import MongoClient
 #from pymongo import dnspython
-#import matplotlib.pyplot as plt
-#import seaborn as sns
 
 from flask import Flask
 from flask_cors import CORS
@@ -167,8 +165,8 @@ def leftWingBack():
         print("The accuracy of the module1 is", acc)
         #check the best accuracy in the model
         if acc > best:
-            best = acc
             print("The best acc", best)
+            best = acc
             with open("leftWingBack.pickle", "wb") as f: # save the model to pickle file
                 pickle.dump(linear, f)
     """
@@ -187,19 +185,6 @@ def leftWingBack():
 
     # for i in range(len(predictions)):
     #     print(predictions[i], x_test[i], y_test[i])
-
-    # Plot the actual value vs model predict value
-    """width = 6
-    height = 5
-    plt.figure(figsize=(width, height))
-    sns.distplot(data['Overall'], hist=False, color="r", label="Actual Value")
-    sns.distplot(predictions, hist=False, color="b", label="Fitted Value")
-
-    plt.title("Actual vs fitted value for leftWingBack")
-    plt.xlabel('Overall')
-    plt.ylabel('Player attribute')
-    plt.show()
-    plt.close()"""
 
     # Printing Root Mean Squared Error of the Model
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
@@ -277,11 +262,11 @@ def centreMidfielder():
         linear = linear_model.LinearRegression() #create the linear regression object
         linear.fit(x_train, y_train)    #find the best fit line
         acc = linear.score(x_test, y_test)
-        print("The accuracy of the module is", acc)
+        print("The accuracy of the module1 is", acc)
         #check the best accuracy in the model
         if acc > best:
-            best = acc
             print("The best acc", best)
+            best = acc
             with open("centreMidfielder.pickle", "wb") as f: # save the model to pickle file
                 pickle.dump(linear, f)
     '''
@@ -301,21 +286,6 @@ def centreMidfielder():
 
     # for i in range(len(predictions)):
     #     print(predictions[i], x_test[i], y_test[i])
-
-    # Plot the actual value vs model predict value
-    """
-    width = 6
-    height = 5
-    plt.figure(figsize=(width, height))
-    sns.distplot(data['Overall'], hist=False, color="r", label="Actual Value")
-    sns.distplot(predictions, hist=False, color="b", label="Fitted Value")
-
-    plt.title("Actual vs fitted value for centreMidfielder")
-    plt.xlabel('Overall')
-    plt.ylabel('Player attribute')
-    plt.show()
-    plt.close()"""
-
 
     # Printing Root Mean Squared Error of the Model
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
@@ -366,6 +336,8 @@ def centreMidfielder():
     # returning the name of the players and their ratings
     return jsonify(tempArray)
 
+
+
     print("\n")
 
 
@@ -397,8 +369,8 @@ def rightWingBack():
         print("The accuracy of the module1 is", acc)
         #check the best accuracy in the model
         if acc > best:
-            best = acc
             print("The best acc", best)
+            best = acc
             with open("rightWingBack.pickle", "wb") as f: # save the model to pickle file
                 pickle.dump(linear, f)
     '''
@@ -418,20 +390,6 @@ def rightWingBack():
 
     # for i in range(len(predictions)):
     #     print(predictions[i], x_test[i], y_test[i])
-
-    # Plot the actual value vs model predict value
-    """
-    width = 6
-    height = 5
-    plt.figure(figsize=(width, height))
-    sns.distplot(data['Overall'], hist=False, color="r", label="Actual Value")
-    sns.distplot(predictions, hist=False, color="b", label="Fitted Value")
-
-    plt.title("Actual vs fitted value for rightWingBack")
-    plt.xlabel('Overall')
-    plt.ylabel('Player attribute')
-    plt.show()
-    plt.close()"""
 
     # Printing Root Mean Squared Error of the Model
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
@@ -513,8 +471,8 @@ def rightWingAttacker():
         print("The accuracy of the module1 is", acc)
         #check the best accuracy in the model
         if acc > best:
-            best = acc
             print("The best acc", best)
+            best = acc
             with open("rightWingAttacker.pickle", "wb") as f: # save the model to pickle file
                 pickle.dump(linear, f)
     '''
@@ -534,20 +492,6 @@ def rightWingAttacker():
 
     # for i in range(len(predictions)):
     #     print(predictions[i], x_test[i], y_test[i])
-
-    # Plot the actual value vs model predict value
-    """
-    width = 6
-    height = 5
-    plt.figure(figsize=(width, height))
-    sns.distplot(data['Overall'], hist=False, color="r", label="Actual Value")
-    sns.distplot(predictions, hist=False, color="b", label="Fitted Value")
-
-    plt.title("Actual vs fitted value for rightWingAttacker")
-    plt.xlabel('Overall')
-    plt.ylabel('Player attribute')
-    plt.show()
-    plt.close()"""
 
     # Printing Root Mean Squared Error of the Model
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
@@ -630,8 +574,8 @@ def leftWingAttacker():
         print("The accuracy of the module1 is", acc)
         #check the best accuracy in the model
         if acc > best:
-            best = acc
             print("The best acc", best)
+            best = acc
             with open("leftWingAttacker.pickle", "wb") as f: # save the model to pickle file
                 pickle.dump(linear, f)
     '''
@@ -651,20 +595,6 @@ def leftWingAttacker():
 
     # for i in range(len(predictions)):
     #     print(predictions[i], x_test[i], y_test[i])
-
-    # Plot the actual value vs model predict value
-    """
-    width = 6
-    height = 5
-    plt.figure(figsize=(width, height))
-    sns.distplot(data['Overall'], hist=False, color="r", label="Actual Value")
-    sns.distplot(predictions, hist=False, color="b", label="Fitted Value")
-
-    plt.title("Actual vs fitted value for leftWingAttacker")
-    plt.xlabel('Overall')
-    plt.ylabel('Player attribute')
-    plt.show()
-    plt.close()"""
 
     # Printing Root Mean Squared Error of the Model
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
@@ -746,8 +676,8 @@ def rightCentreMidfielder():
         print("The accuracy of the module1 is", acc)
         #check the best accuracy in the model
         if acc > best:
-            best = acc
             print("The best acc", best)
+            best = acc
             with open("rightCentreMidfielder.pickle", "wb") as f:  # save the model to pickle file
                 pickle.dump(linear, f) 
     '''
@@ -767,20 +697,6 @@ def rightCentreMidfielder():
 
     # for i in range(len(predictions)):
     #     print(predictions[i], x_test[i], y_test[i])
-
-    # Plot the actual value vs model predict value
-    """
-    width = 6
-    height = 5
-    plt.figure(figsize=(width, height))
-    sns.distplot(data['Overall'], hist=False, color="r", label="Actual Value")
-    sns.distplot(predictions, hist=False, color="b", label="Fitted Value")
-
-    plt.title("Actual vs fitted value for rightCentreMidfielder")
-    plt.xlabel('Overall')
-    plt.ylabel('Player attribute')
-    plt.show()
-    plt.close()"""
 
     # Printing Root Mean Squared Error of the Model
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
@@ -861,8 +777,8 @@ def leftCentreMidfielder():
         print("The accuracy of the module1 is", acc)
         #check the best accuracy in the model
         if acc > best:
-            best = acc
             print("The best acc", best)
+            best = acc
             with open("leftCentreMidfielder.pickle", "wb") as f:  # save the model to pickle file
                 pickle.dump(linear, f)
     '''
@@ -882,19 +798,6 @@ def leftCentreMidfielder():
 
     # for i in range(len(predictions)):
     #     print(predictions[i], x_test[i], y_test[i])
-
-    # Plot the actual value vs model predict value
-    """
-     width = 6
-    height = 5
-    plt.figure(figsize=(width, height))
-    sns.distplot(data['Overall'], hist=False, color="r", label="Actual Value")
-    sns.distplot(predictions, hist=False, color="b", label="Fitted Value")
-    plt.title("Actual vs fitted value for leftCentreMidfielder")
-    plt.xlabel('Overall')
-    plt.ylabel('Player attribute')
-    plt.show()
-    plt.close()"""
 
     # Printing Root Mean Squared Error of the Model
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
@@ -975,8 +878,8 @@ def striker():
         print("The accuracy of the module1 is", acc)
         #check the best accuracy in the model
         if acc > best:
-            best = acc
             print("The best acc", best)
+            best = acc
             with open("striker.pickle", "wb") as f:  # save the model to pickle file
                 pickle.dump(linear, f)
     '''
@@ -996,19 +899,6 @@ def striker():
 
     # for i in range(len(predictions)):
     #     print(predictions[i], x_test[i], y_test[i])
-
-    # Plot the actual value vs model predict value
-    """
-    width = 6
-    height = 5
-    plt.figure(figsize=(width, height))
-    sns.distplot(data['Overall'], hist=False, color="r", label="Actual Value")
-    sns.distplot(predictions, hist=False, color="b", label="Fitted Value")
-    plt.title("Actual vs fitted value for striker")
-    plt.xlabel('Overall')
-    plt.ylabel('Player attribute')
-    plt.show()
-    plt.close()"""
 
     # Printing Root Mean Squared Error of the Model
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
@@ -1094,8 +984,8 @@ def leftCenterDefender():
         print("The accuracy of the module1 is", acc)
         #check the best accuracy in the model
         if acc > best:
-            best = acc
             print("The best acc", best)
+            best = acc
             with open("leftCenterDefender.pickle", "wb") as f:  # save the model to pickle file
                 pickle.dump(linear, f)
     '''
@@ -1115,19 +1005,6 @@ def leftCenterDefender():
 
     # for i in range(len(predictions)):
     #     print(predictions[i], x_test[i], y_test[i])
-
-    # Plot the actual value vs model predict value
-    """
-    width = 6
-    height = 5
-    plt.figure(figsize=(width, height))
-    sns.distplot(data['Overall'], hist=False, color="r", label="Actual Value")
-    sns.distplot(predictions, hist=False, color="b", label="Fitted Value")
-    plt.title("Actual vs fitted value for leftCenterDefender")
-    plt.xlabel('Overall')
-    plt.ylabel('Player attribute')
-    plt.show()
-    plt.close()"""
 
     # Printing Root Mean Squared Error of the Model
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
@@ -1208,8 +1085,8 @@ def rightCenterDefender():
         print("The accuracy of the module1 is", acc)
         #check the best accuracy in the model
         if acc > best:
-            best = acc
             print("The best acc", best)
+            best = acc
             with open("rightCenterDefender.pickle", "wb") as f:  # save the model to pickle file
                 pickle.dump(linear, f)
     '''
@@ -1229,18 +1106,6 @@ def rightCenterDefender():
 
     # for i in range(len(predictions)):
     #     print(predictions[i], x_test[i], y_test[i])
-
-    # Plot the actual value vs model predict value
-    """width = 6
-    height = 5
-    plt.figure(figsize=(width, height))
-    sns.distplot(data['Overall'], hist=False, color="r", label="Actual Value")
-    sns.distplot(predictions, hist=False, color="b", label="Fitted Value")
-    plt.title("Actual vs fitted value for rightCenterDefender")
-    plt.xlabel('Overall')
-    plt.ylabel('Player attribute')
-    plt.show()
-    plt.close()"""
 
     # Printing Root Mean Squared Error of the Model
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
