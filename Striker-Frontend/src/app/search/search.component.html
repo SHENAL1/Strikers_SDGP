@@ -1,0 +1,50 @@
+<header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#body" class="scrollto">Strik<span>er</span></a></h1>
+        
+      </div>
+      <section id="intro1">
+
+          <div class="intro1-content" style="text-align:right; display:inline;">
+            
+            <div>
+              
+              <a href="/menu" class="btn-get-started scrollto">Back To Menu</a>
+              <a href="/home" class="btn-get-started scrollto">Log-Out</a>
+              
+            </div>
+          </div>
+      
+          
+      
+        </section>
+      
+    </div>
+  </header>
+<div class="FULL">
+  <div class="container">
+    <div class="row">
+      <div class="search-hero">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching for a player">
+      </div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Club</th>
+          <th>Position</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let Update of Store | filter:searchText">
+          <td>{{Update.Short_name}}</td>     
+          <td>{{Update.Club}}</td>
+          <td>{{Update.Position}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,24 +1,135 @@
 
 <header id="header">
-    <div class="container">
-  
-      <div id="logo" class="pull-left">
-        
-        <h1><a href="#body" class="scrollto">Strik<span>er</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
-      </div>
-  
+  <div class="container">
+
+    <div id="logo" class="pull-left">
+      <h1><a href="#body" class="scrollto">Strik<span>er</span></a></h1>
       
     </div>
-  </header>
+    <section id="intro1">
+
+        <div class="intro1-content" style="text-align:right; display:inline;">
+          
+          <div>
+            
+            <a href="/menu" class="btn-get-started scrollto">Back To Menu</a>
+            <a href="/home" class="btn-get-started scrollto">Log-Out</a>
+            
+          </div>
+        </div>
+    
+        
+    
+      </section>
+    
+  </div>
+</header>
+
+<div class="keep">
+<div class="container1">
+<button (click)="show = !show" class="data">Goal-Keeper</button>
+
+<br>
+<div *ngIf="show;" class="display" >
+  <table class="table" >
+    <thead class="thead-light">
+        <tr class="p-3 mb-2 bg-secondary text-white">
+          <th scope="col">Name</th>
+            <th scope="col">Rating</th>
+        </tr>
+    </thead>
+    <tbody >
+    <tr *ngFor="let goalkeeperlist of goalkeeperStore">
+          
+          <td style="font-weight: bold;">{{goalkeeperlist.name | uppercase}}</td>
+          <td style="font-weight: bold;">{{goalkeeperlist.rating}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
   
-  <div class="keep">
-  <div class="container1">
-  <button (click)="show = !show" class="data">Goal-Keeper</button>
-  
+</div>
+
+
+
+<div class="container2">
+      <button (click)="show1 = !show1" class="data">Left-Wing Back</button>
+      
+      <br>
+      <div *ngIf="show1;" class="display">
+        <table class="table" >
+          <thead class="thead-light">
+              <tr class="p-3 mb-2 bg-secondary text-white">
+                <th scope="col">Name</th>
+                  <th scope="col">Rating</th>
+              </tr>
+          </thead>
+          <tbody >
+        <tr *ngFor="let leftWingBacklist of leftWingBackStore">
+                  
+          <td style="font-weight: bold;">{{leftWingBacklist.name | uppercase}}</td>
+          <td style="font-weight: bold;">{{leftWingBacklist.rating}}</td>
+      </tr>
+    </tbody>
+  </table>
+      </div>
+      
+</div>
+
+<div class="container3">
+  <button (click)="show2 = !show2" class="data">Central Midfielder</button>
+      
+      <br>
+      <div *ngIf="show2;" class="display">
+        <table class="table" >
+          <thead class="thead-light">
+              <tr class="p-3 mb-2 bg-secondary text-white">
+                <th scope="col">Name</th>
+                  <th scope="col">Rating</th>
+              </tr>
+          </thead>
+          <tbody >
+        <tr *ngFor="let centreMidfielderlist of centreMidfielderStore">
+                  
+          <td style="font-weight: bold;">{{centreMidfielderlist.name | uppercase}}</td>
+          <td style="font-weight: bold;">{{centreMidfielderlist.rating}}</td>
+      </tr>
+    </tbody>
+  </table>
+      </div>
+      
+</div>
+
+<div class="container4">
+        <button (click)="show3 = !show3" class="data">Right-Wing Back</button>
+        
+        <br>
+        <div *ngIf="show3;" class="display">
+          <table class="table" >
+            <thead class="thead-light">
+                <tr class="p-3 mb-2 bg-secondary text-white">
+                  <th scope="col">Name</th>
+                    <th scope="col">Rating</th>
+                </tr>
+            </thead>
+            <tbody >
+          <tr *ngFor="let rightWingBacklist of rightWingBackStore">
+                    
+            <td style="font-weight: bold;">{{rightWingBacklist.name | uppercase}}</td>
+            <td style="font-weight: bold;">{{rightWingBacklist.rating}}</td>
+        </tr>
+      </tbody>
+    </table>
+        </div>
+        
+</div>
+
+<div class="container5">
+  <button (click)="show4 = !show4" class="data">Right-Wing Attacker</button>
+          
   <br>
-  <div *ngIf="show;" class="display" >
+  <div *ngIf="show4;" class="display">
     <table class="table" >
       <thead class="thead-light">
           <tr class="p-3 mb-2 bg-secondary text-white">
@@ -27,97 +138,22 @@
           </tr>
       </thead>
       <tbody >
-      <tr *ngFor="let goalkeeperlist of goalkeeperStore">
-            
-            <td style="font-weight: bold;">{{goalkeeperlist.name | uppercase}}</td>
-            <td style="font-weight: bold;">{{goalkeeperlist.rating}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  
-    
-  </div>
-  
-  
-  
-  <div class="container2">
-        <button (click)="show1 = !show1" class="data">Left-Wing Back</button>
-        
-        <br>
-        <div *ngIf="show1;" class="display">
-          <table class="table" >
-            <thead class="thead-light">
-                <tr class="p-3 mb-2 bg-secondary text-white">
-                  <th scope="col">Name</th>
-                    <th scope="col">Rating</th>
-                </tr>
-            </thead>
-            <tbody >
-          <tr *ngFor="let leftWingBacklist of leftWingBackStore">
-                    
-            <td style="font-weight: bold;">{{leftWingBacklist.name | uppercase}}</td>
-            <td style="font-weight: bold;">{{leftWingBacklist.rating}}</td>
-        </tr>
-      </tbody>
-    </table>
-        </div>
-        
-  </div>
-  
-  <div class="container3">
-    <button (click)="show2 = !show2" class="data">Central Midfielder</button>
-        
-        <br>
-        <div *ngIf="show2;" class="display">
-          <table class="table" >
-            <thead class="thead-light">
-                <tr class="p-3 mb-2 bg-secondary text-white">
-                  <th scope="col">Name</th>
-                    <th scope="col">Rating</th>
-                </tr>
-            </thead>
-            <tbody >
-          <tr *ngFor="let centreMidfielderlist of centreMidfielderStore">
-                    
-            <td style="font-weight: bold;">{{centreMidfielderlist.name | uppercase}}</td>
-            <td style="font-weight: bold;">{{centreMidfielderlist.rating}}</td>
-        </tr>
-      </tbody>
-    </table>
-        </div>
-        
-  </div>
-  
-  <div class="container4">
-          <button (click)="show3 = !show3" class="data">Right-Wing Back</button>
-          
-          <br>
-          <div *ngIf="show3;" class="display">
-            <table class="table" >
-              <thead class="thead-light">
-                  <tr class="p-3 mb-2 bg-secondary text-white">
-                    <th scope="col">Name</th>
-                      <th scope="col">Rating</th>
-                  </tr>
-              </thead>
-              <tbody >
-            <tr *ngFor="let rightWingBacklist of rightWingBackStore">
+  <tr *ngFor="let rightWingAttackerlist of rightWingAttackerStore">
                       
-              <td style="font-weight: bold;">{{rightWingBacklist.name | uppercase}}</td>
-              <td style="font-weight: bold;">{{rightWingBacklist.rating}}</td>
-          </tr>
-        </tbody>
-      </table>
-          </div>
-          
+  <td style="font-weight: bold;">{{rightWingAttackerlist.name | uppercase}}</td>
+  <td style="font-weight: bold;">{{rightWingAttackerlist.rating}}</td>
+  </tr>
+</tbody>
+</table>
   </div>
-  
-  <div class="container5">
-    <button (click)="show4 = !show4" class="data">Right-Wing Attacker</button>
+         
+</div>
+
+<div class="container6">
+    <button (click)="show5 = !show5" class="data">Left-Wing Attacker</button>
             
     <br>
-    <div *ngIf="show4;" class="display">
+    <div *ngIf="show5;" class="display">
       <table class="table" >
         <thead class="thead-light">
             <tr class="p-3 mb-2 bg-secondary text-white">
@@ -126,22 +162,46 @@
             </tr>
         </thead>
         <tbody >
-    <tr *ngFor="let rightWingAttackerlist of rightWingAttackerStore">
+        <tr *ngFor="let leftWingAttackerlist of leftWingAttackerStore">
                         
-    <td style="font-weight: bold;">{{rightWingAttackerlist.name | uppercase}}</td>
-    <td style="font-weight: bold;">{{rightWingAttackerlist.rating}}</td>
+          <td style="font-weight: bold;">{{leftWingAttackerlist.name | uppercase}}</td>
+          <td style="font-weight: bold;">{{leftWingAttackerlist.rating}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+          
+</div>
+<div class="container7">
+              
+  <button (click)="show6 = !show6" class="data">Right-Center Midfielder</button>
+            
+  <br>
+  <div *ngIf="show6;" class="display">
+    <table class="table" >
+      <thead class="thead-light">
+          <tr class="p-3 mb-2 bg-secondary text-white">
+            <th scope="col">Name</th>
+              <th scope="col">Rating</th>
+          </tr>
+      </thead>
+      <tbody >
+    <tr *ngFor="let rightCentreMidfielderlist of rightCentreMidfielderStore">
+                          
+        <td style="font-weight: bold;">{{rightCentreMidfielderlist.name | uppercase}}</td>
+        <td style="font-weight: bold;">{{rightCentreMidfielderlist.rating}}</td>
     </tr>
   </tbody>
-  </table>
-    </div>
-           
+</table>
   </div>
-  
-  <div class="container6">
-      <button (click)="show5 = !show5" class="data">Left-Wing Attacker</button>
-              
-      <br>
-      <div *ngIf="show5;" class="display">
+        
+</div>
+
+<div class="container8">
+  <button (click)="show7 = !show7" class="data">Left-Center Midfielder</button>
+                
+    <br>
+      <div *ngIf="show7;" class="display">
         <table class="table" >
           <thead class="thead-light">
               <tr class="p-3 mb-2 bg-secondary text-white">
@@ -150,22 +210,70 @@
               </tr>
           </thead>
           <tbody >
-          <tr *ngFor="let leftWingAttackerlist of leftWingAttackerStore">
-                          
-            <td style="font-weight: bold;">{{leftWingAttackerlist.name | uppercase}}</td>
-            <td style="font-weight: bold;">{{leftWingAttackerlist.rating}}</td>
-            </tr>
-          </tbody>
-        </table>
+          <tr *ngFor="let leftCentreMidfielderlist of leftCentreMidfielderStore">
+                            
+          <td style="font-weight: bold;">{{leftCentreMidfielderlist.name | uppercase}}</td>
+          <td style="font-weight: bold;">{{leftCentreMidfielderlist.rating}}</td>
+          </tr>
+        </tbody>
+      </table>
       </div>
-            
-  </div>
-  <div class="container7">
                 
-    <button (click)="show6 = !show6" class="data">Right-Center Midfielder</button>
-              
+</div>
+
+<div class="container9">
+    <button (click)="show8 = !show8" class="data">Striker</button>
+                  
     <br>
-    <div *ngIf="show6;" class="display">
+      <div *ngIf="show8;" class="display">
+        <table class="table" >
+          <thead class="thead-light">
+              <tr class="p-3 mb-2 bg-secondary text-white">
+                <th scope="col">Name</th>
+                  <th scope="col">Rating</th>
+              </tr>
+          </thead>
+          <tbody >
+          <tr *ngFor="let strikerlist of strikerStore">
+                              
+            <td style="font-weight: bold;">{{strikerlist.name | uppercase}}</td>
+            <td style="font-weight: bold;">{{strikerlist.rating}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+                
+</div>
+
+<div class="container10">
+    <button (click)="show9 = !show9" class="data">Left-Center Defender</button>
+                    
+      <br>
+      <div *ngIf="show9;" class="display">
+        <table class="table" >
+          <thead class="thead-light">
+              <tr class="p-3 mb-2 bg-secondary text-white">
+                <th scope="col">Name</th>
+                  <th scope="col">Rating</th>
+              </tr>
+          </thead>
+          <tbody >
+        <tr *ngFor="let leftCenterDefenderlist of leftCenterDefenderStore">
+                                
+            <td style="font-weight: bold;">{{leftCenterDefenderlist.name | uppercase}}</td>
+            <td style="font-weight: bold;">{{leftCenterDefenderlist.rating}}</td>
+      </tr>
+    </tbody>
+  </table>
+      </div>
+                 
+</div>
+
+<div class="container11">
+    <button (click)="show10 = !show10" class="data">Right-Center Defender</button>
+                      
+      <br>
+    <div *ngIf="show10;" class="display">
       <table class="table" >
         <thead class="thead-light">
             <tr class="p-3 mb-2 bg-secondary text-white">
@@ -174,116 +282,19 @@
             </tr>
         </thead>
         <tbody >
-      <tr *ngFor="let rightCentreMidfielderlist of rightCentreMidfielderStore">
-                            
-          <td style="font-weight: bold;">{{rightCentreMidfielderlist.name | uppercase}}</td>
-          <td style="font-weight: bold;">{{rightCentreMidfielderlist.rating}}</td>
+      <tr *ngFor="let rightCenterDefenderlist of rightCenterDefenderStore">
+                                  
+          <td style="font-weight: bold;">{{rightCenterDefenderlist.name | uppercase}}</td>
+          <td style="font-weight: bold;">{{rightCenterDefenderlist.rating}}</td>
       </tr>
     </tbody>
   </table>
     </div>
-          
-  </div>
-  
-  <div class="container8">
-    <button (click)="show7 = !show7" class="data">Left-Center Midfielder</button>
-                  
-      <br>
-        <div *ngIf="show7;" class="display">
-          <table class="table" >
-            <thead class="thead-light">
-                <tr class="p-3 mb-2 bg-secondary text-white">
-                  <th scope="col">Name</th>
-                    <th scope="col">Rating</th>
-                </tr>
-            </thead>
-            <tbody >
-            <tr *ngFor="let leftCentreMidfielderlist of leftCentreMidfielderStore">
-                              
-            <td style="font-weight: bold;">{{leftCentreMidfielderlist.name | uppercase}}</td>
-            <td style="font-weight: bold;">{{leftCentreMidfielderlist.rating}}</td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-                  
-  </div>
-  
-  <div class="container9">
-      <button (click)="show8 = !show8" class="data">Striker</button>
-                    
-      <br>
-        <div *ngIf="show8;" class="display">
-          <table class="table" >
-            <thead class="thead-light">
-                <tr class="p-3 mb-2 bg-secondary text-white">
-                  <th scope="col">Name</th>
-                    <th scope="col">Rating</th>
-                </tr>
-            </thead>
-            <tbody >
-            <tr *ngFor="let strikerlist of strikerStore">
-                                
-              <td style="font-weight: bold;">{{strikerlist.name | uppercase}}</td>
-              <td style="font-weight: bold;">{{strikerlist.rating}}</td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-                  
-  </div>
-  
-  <div class="container10">
-      <button (click)="show9 = !show9" class="data">Left-Center Defender</button>
-                      
-        <br>
-        <div *ngIf="show9;" class="display">
-          <table class="table" >
-            <thead class="thead-light">
-                <tr class="p-3 mb-2 bg-secondary text-white">
-                  <th scope="col">Name</th>
-                    <th scope="col">Rating</th>
-                </tr>
-            </thead>
-            <tbody >
-          <tr *ngFor="let leftCenterDefenderlist of leftCenterDefenderStore">
-                                  
-              <td style="font-weight: bold;">{{leftCenterDefenderlist.name | uppercase}}</td>
-              <td style="font-weight: bold;">{{leftCenterDefenderlist.rating}}</td>
-        </tr>
-      </tbody>
-    </table>
-        </div>
                    
-  </div>
-  
-  <div class="container11">
-      <button (click)="show10 = !show10" class="data">Right-Center Defender</button>
-                        
-        <br>
-      <div *ngIf="show10;" class="display">
-        <table class="table" >
-          <thead class="thead-light">
-              <tr class="p-3 mb-2 bg-secondary text-white">
-                <th scope="col">Name</th>
-                  <th scope="col">Rating</th>
-              </tr>
-          </thead>
-          <tbody >
-        <tr *ngFor="let rightCenterDefenderlist of rightCenterDefenderStore">
-                                    
-            <td style="font-weight: bold;">{{rightCenterDefenderlist.name | uppercase}}</td>
-            <td style="font-weight: bold;">{{rightCenterDefenderlist.rating}}</td>
-        </tr>
-      </tbody>
-    </table>
-      </div>
-                     
-  </div>
-  
-  </div>
-  
-  
-  
-  
-  
+</div>
+
+</div>
+
+
+
+

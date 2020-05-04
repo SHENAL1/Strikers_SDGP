@@ -1,31 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {PlayerService} from '../player.service';
-import {Player} from '../player'
-
+import { PlayersService } from '../players.service';
+import { FormControl, EmailValidator, Validators } from '@angular/forms';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-players',
   templateUrl: './view-players.component.html',
   styleUrls: ['./view-players.component.css']
 })
-export class ViewPlayersComponent implements OnInit {
+export class ViewPlayersComponent {
 
-  private players:Player[];
-  constructor(private playerService:PlayerService) { }
+  Store:any[];
+  currentTutorial = null;
 
-  ngOnInit(): void {
-    this.getPlayer();
+  constructor(public playersService:PlayersService) { 
+    this.playersService.getyo().subscribe(Update=>{this.Store=Update});
   }
-  getPlayer(){
-    this.playerService.getPlayer().subscribe(
-      data=>{
-        console.log(data);
-      },
-      error=>{
-        console.log(error)
-      }
-    )
-  }
+
 }
-
-  
