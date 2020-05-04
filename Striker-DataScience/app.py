@@ -36,7 +36,7 @@ def goalkeeper():
     # Drop the rows where at least one element is null:
     data = data.dropna()
     predict = "Overall"
-    X = np.array(data.drop([predict], 1))  #drop overall to select other variables as dependent variables
+    X = np.array(data.drop([predict], 1))  # drop overall to select other variables as dependent variables
     y = np.array(data[predict])  # select overall as independent variable
 
     # Splitting data into test and train
@@ -66,11 +66,11 @@ def goalkeeper():
     print("Coefficient:\n", linear.coef_)
     print("Intercept:\n", linear.intercept_)
 
-    #calculating the accuracy of the model
+    # calculating the accuracy of the model
     acc = linear.score(x_test, y_test)
     print("The accuracy of the module is 1 ", acc)
 
-    #prediction values of test data.
+    # prediction values of test data.
     predictions = linear.predict(x_test)
 
     # Plot the actual value vs model predict value
@@ -90,28 +90,28 @@ def goalkeeper():
     # for i in range(len(predictions)):
     #     print(predictions[i], x_test[i], y_test[i])
 
-    #Printing Root Mean Squared Error of the Model
+    # Printing Root Mean Squared Error of the Model
     print('RMSE : ' + str(np.sqrt(mean_squared_error(y_test, predictions))))
-    #print("The Test value:\n")
-    #print(linear.predict(np.array([[80.0, 30.0, 56.0, 45.0, 78.0, 56.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0]]))[0])
+    # print("The Test value:\n")
+    # print(linear.predict(np.array([[80.0, 30.0, 56.0, 45.0, 78.0, 56.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0]]))[0])
 
     print("Top Ratings of the Goal Keepers :\n")
 
-    #Finding the values that contain Position = "GK" To get the goal keepers from the collection
+    # Finding the values that contain Position = "GK" To get the goal keepers from the collection
     result = collection.find({"Position": "GK"})
 
-    #create empty arrays to store names and ratings
+    # create empty arrays to store names and ratings
     names = []
     ratings = []
-    #Looping the result array to data2 array
+    # Looping the result array to data2 array
     for x in result:
-        data2 = [x["Reactions"], x["Composure"], x["Sprint_Speed"], x["Strength"], x["Jumping"],x["GK_Positioning"],
+        data2 = [x["Reactions"], x["Composure"], x["Sprint_Speed"], x["Strength"], x["Jumping"], x["GK_Positioning"],
                  x["GK_Diving"], x["GKReflexes"], x["GK_Handling"], x["GK_Kicking"], x["Vision"], x["Age"]]
 
-        #Getting the short name of the player
+        # Getting the short name of the player
         name = x["Short_name"]
 
-        #Passing the data2 array to the prediction
+        # Passing the data2 array to the prediction
         re = linear.predict(np.array([data2]))[0]
 
         # append values to the list
