@@ -1,10 +1,34 @@
 
+<header id="header">
+    <div class="container">
 
+      <div id="logo" class="pull-left">
+        <h1><a href="#body" class="scrollto">Strik<span>er</span></a></h1>
+        
+      </div>
+      <section id="intro1">
+
+          <div class="intro1-content" style="text-align:right; display:inline;">
+            
+            <div>
+              
+              <a href="/menu" class="btn-get-started scrollto">Back To Menu</a>
+              <a href="/home" class="btn-get-started scrollto">Log-Out</a>
+              
+            </div>
+          </div>
+      
+          
+      
+        </section>
+      
+    </div>
+  </header>
 <div class="container">
-    <table class="table table-hover table-dark" >
+    <table class="table" >
       <thead>
-          <tr class="p-3 mb-2 bg-secondary text-white">
-            <th>Photo</th>
+          <tr>
+        
             <th>Short_name</th>
              <th>Long_name</th>
               <th>Age</th>
@@ -13,8 +37,9 @@
               <th>Nationality</th>
               <th>Club</th>
               <th>Overall</th>
-              <th>PotentialPotential</th>
+              <th>Potential</th>
               <th>Value</th>
+              <th>Wage</th>
               <th>Preferred_Foot</th>
               <th>International_Reputation</th>
               <th>Weak_Foot</th>
@@ -62,63 +87,62 @@
       <tbody >
     
         
-           <tr *ngFor = "let player of Player">
+           <tr *ngFor = "let Update of Store">
              
-             <td>{{player.id}}</td>  ng    
-            <td><div id="img" style="background-image: url('https://i0.wp.com/winnyweatherwatch.com/wp-content/uploads/2018/12/clouds-dark-dark-clouds-416920-e1543806562950.jpg?resize=1000%2C480&ssl=1') "></div></td>   
-            <td>{{player.Short_name}}</td>     
-            <td>{{player.Long_name}}</td>
-            <td>{{player.Age}}</td>
-            <td>{{player.Height}}</td>
-            <td>{{player.Weight}}</td>
-            <td>{{player.Nationality}}</td>
-           <td>{{player.Club}}</td>
-            <td>{{player.Overall}}</td>
-            <td>{{player.PotentialPotential}}</td>
-            <td>{{player.Value}}</td>
-            <td>{{player.Preferred_Foot}}</td>
-            <td>{{player.International_Reputation}}</td>
-            <td>{{player.Weak_Foot}}</td>
-            <td>{{player.Skill_Moves}}</td>
-            <td>{{player.Position}}</td>
-            <td>{{player.Jersey_Number}}</td>
-            <td>{{player.Contract_Valid_Until}}</td>
-            <td>{{player.Crossing}}</td>
-            <td>{{player.Finishing}}</td>
-            <td>{{player.Heading_Accuracy}}</td>
-            <td>{{player.Short_Passing}}</td>
-            <td>{{player.Volleys}}</td>
-            <td>{{player.Dribbling}}</td>
-            <td>{{player.Curve}}</td>
-            <td>{{player.FK_Accuracy}}</td>
-            <td>{{player.Long_Passing}}</td>
-            <td> {{player.Ball_Control}}</td>
-            <td>{{player.Acceleration}}</td>
-            <td>{{player.Sprint_Speed}}</td>
-            <td>{{player.Agility}}</td>
-            <td>{{player.Reactions}}</td>
-            <td>{{player.Balance}}</td>
-            <td>{{player.Shot_Power}}</td>
-            <td>{{player.Jumping}}</td>
-            <td>{{player.Stamina}}</td>
-            <td>{{player.Strength}}</td>
-            <td>{{player.Long_Shots}}</td>
-            <td>{{player.Aggression}}</td>
-            <td>{{player.Interceptions}}</td>
-            <td>{{player.Positioning}}</td>
-            <td>{{player.Vision}}</td>
-            <td>{{player.Penalties}}</td>
-            <td>{{player.Composure}}</td>
-            <td>{{player.Marking}}</td>
-            <td>{{player.Standing_Tackle}}</td>
-            <td>{{player.Sliding_Tackle}}</td>
-            <td>{{player.GK_Diving}}</td>
-            <td>{{player.GK_Handling}}</td>
-            <td>{{player.GK_Kicking}}</td>
-            <td>{{player.GK_Positioning}}</td>
-            <td>{{player.GKReflexes}}</td> 
-            <td><button class="btn btn-danger">Delete</button></td>
-             <td><button class="btn btn-primary">Update</button></td>
+            
+             <td >{{Update.Short_name}}</td>     
+            <td>{{Update.Long_name}}</td>
+            <td>{{Update.Age}}</td>
+            <td>{{Update.Height}}</td>
+            <td>{{Update.Weight}}</td>
+            <td>{{Update.Nationality}}</td>
+           <td>{{Update.Club}}</td>
+            <td>{{Update.Overall}}</td>
+            <td>{{Update.PotentialPotential}}</td>
+            <td>{{Update.Value}}</td>
+            <td>{{Update.Wage}}</td>
+            <td>{{Update.Preferred_Foot}}</td>
+            <td>{{Update.International_Reputation}}</td>
+            <td>{{Update.Weak_Foot}}</td>
+            <td>{{Update.Skill_Moves}}</td>
+            <td>{{Update.Position}}</td>
+            <td>{{Update.Jersey_Number}}</td>
+            <td>{{Update.Contract_Valid_Until}}</td>
+            <td>{{Update.Crossing}}</td>
+            <td>{{Update.Finishing}}</td>
+            <td>{{Update.Heading_Accuracy}}</td>
+            <td>{{Update.Short_Passing}}</td>
+            <td>{{Update.Volleys}}</td>
+            <td>{{Update.Dribbling}}</td>
+            <td>{{Update.Curve}}</td>
+            <td>{{Update.FK_Accuracy}}</td>
+            <td>{{Update.Long_Passing}}</td>
+            <td> {{Update.Ball_Control}}</td>
+            <td>{{Update.Acceleration}}</td>
+            <td>{{Update.Sprint_Speed}}</td>
+            <td>{{Update.Agility}}</td>
+            <td>{{Update.Reactions}}</td>
+            <td>{{Update.Balance}}</td>
+            <td>{{Update.Shot_Power}}</td>
+            <td>{{Update.Jumping}}</td>
+            <td>{{Update.Stamina}}</td>
+            <td>{{Update.Strength}}</td>
+            <td>{{Update.Long_Shots}}</td>
+            <td>{{Update.Aggression}}</td>
+            <td>{{Update.Interceptions}}</td>
+            <td>{{Update.Positioning}}</td>
+            <td>{{Update.Vision}}</td>
+            <td>{{Update.Penalties}}</td>
+            <td>{{Update.Composure}}</td>
+            <td>{{Update.Marking}}</td>
+            <td>{{Update.Standing_Tackle}}</td>
+            <td>{{Update.Sliding_Tackle}}</td>
+            <td>{{Update.GK_Diving}}</td>
+            <td>{{Update.GK_Handling}}</td>
+            <td>{{Update.GK_Kicking}}</td>
+            <td>{{Update.GK_Positioning}}</td>
+            <td>{{Update.GKReflexes}}</td> 
+            
             
           </tr>
       </tbody>
@@ -128,3 +152,4 @@
    
       
   
+  <router-outlet></router-outlet>

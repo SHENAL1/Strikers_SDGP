@@ -6,9 +6,13 @@
   },
   "files": [
     "src/main.ts",
-    "src/polyfills.ts"
+    "src/polyfills.ts",
+    "src/app/session.ts"
+    
   ],
   "include": [
-    "src/**/*.d.ts"
-  ]
+    "src/**/*.d.ts",
+   
+  ],
+  "angularCompilerOptions": { "enableIvy": false }
 }
